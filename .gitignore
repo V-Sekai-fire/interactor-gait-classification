@@ -1,0 +1,26 @@
+# pixi / python envs
+.pixi/
+.venv/
+__pycache__/
+*.pyc
+
+# large raw / derived data (not version-controlled)
+wear/train/
+wear/test/
+wear/*.npy
+wear/*.npz
+wear/wear_features.parquet
+wear/wear_mm.parquet
+cache/
+caldata/
+*.b3d
+*.mat
+
+# trained models (large, reproducible)
+wear/models_*/
+models_*/
+AutogluonModels/
+
+# secrets
+**/access_token
+**/kaggle.json

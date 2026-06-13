@@ -1,0 +1,110 @@
+% References for the gait/biomechanics + WEAR decision records.
+% Datasets ------------------------------------------------------------------
+@misc{uci561gait,
+  title        = {{Person Classification Gait Data}},
+  author       = {{UCI Machine Learning Repository}},
+  year         = {2020},
+  publisher    = {UCI Machine Learning Repository},
+  doi          = {10.24432/C5PP68},
+  url          = {https://doi.org/10.24432/C5PP68},
+  note         = {Dataset \#561. 16 volunteers (7F/9M, ages 20--34), Kinect-based;
+                  X = 321 gait features, Y = person label.}
+}
+
+@article{bock2024wear,
+  title     = {{WEAR}: An Outdoor Sports Dataset for Wearable and Egocentric Activity Recognition},
+  author    = {Bock, Marius and Kuehne, Hilde and Van Laerhoven, Kristof and Moeller, Michael},
+  journal   = {Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies (IMWUT)},
+  volume    = {8},
+  number    = {4},
+  articleno = {175},
+  year      = {2024},
+  doi       = {10.1145/3699776},
+  url       = {https://mariusbock.github.io/wear/}
+}
+
+@inproceedings{werling2023addbiomechanics,
+  title     = {{AddBiomechanics}: Automating Model Scaling, Inverse Kinematics, and Inverse Dynamics
+               from Human Motion Data through Sequential Optimization},
+  author    = {Werling, Keenon and Bianco, Nicholas A. and Raitor, Michael and Stingel, Jon and
+               Hicks, Jennifer L. and Collins, Steven H. and Delp, Scott L. and Liu, C. Karen},
+  booktitle = {PLOS ONE},
+  year      = {2023},
+  doi       = {10.1371/journal.pone.0295152},
+  url       = {https://addbiomechanics.org}
+}
+
+% Models --------------------------------------------------------------------
+@article{gorishniy2024tabm,
+  title   = {{TabM}: Advancing Tabular Deep Learning with Parameter-Efficient Ensembling},
+  author  = {Gorishniy, Yury and Kotelnikov, Akim and Babenko, Artem},
+  journal = {arXiv preprint arXiv:2410.24210},
+  year    = {2024}
+}
+
+@article{holzmuller2024better,
+  title   = {Better by Default: Strong Pre-Tuned MLPs and Boosted Trees on Tabular Data ({RealMLP})},
+  author  = {Holzm{\"u}ller, David and Grinsztajn, L{\'e}o and Steinwart, Ingo},
+  journal = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year    = {2024}
+}
+
+@inproceedings{ke2017lightgbm,
+  title     = {{LightGBM}: A Highly Efficient Gradient Boosting Decision Tree},
+  author    = {Ke, Guolin and Meng, Qi and Finley, Thomas and Wang, Taifeng and Chen, Wei and
+               Ma, Weidong and Ye, Qiwei and Liu, Tie-Yan},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2017}
+}
+
+@inproceedings{prokhorenkova2018catboost,
+  title     = {{CatBoost}: Unbiased Boosting with Categorical Features},
+  author    = {Prokhorenkova, Liudmila and Gusev, Gleb and Vorobev, Aleksandr and
+               Dorogush, Anna Veronika and Gulin, Andrey},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2018}
+}
+
+@inproceedings{chen2016xgboost,
+  title     = {{XGBoost}: A Scalable Tree Boosting System},
+  author    = {Chen, Tianqi and Guestrin, Carlos},
+  booktitle = {Proceedings of the 22nd ACM SIGKDD},
+  year      = {2016},
+  doi       = {10.1145/2939672.2939785}
+}
+
+@inproceedings{erickson2020autogluon,
+  title   = {{AutoGluon-Tabular}: Robust and Accurate AutoML for Structured Data},
+  author  = {Erickson, Nick and Mueller, Jonas and Shirkov, Alexander and Zhang, Hang and
+             Larroy, Pedro and Li, Mu and Smola, Alexander},
+  journal = {arXiv preprint arXiv:2003.06505},
+  year    = {2020},
+  url     = {https://auto.gluon.ai}
+}
+
+@article{hollmann2025tabpfn,
+  title   = {Accurate predictions on small data with a tabular foundation model ({TabPFN})},
+  author  = {Hollmann, Noah and M{\"u}ller, Samuel and Purucker, Lennart and Krishnakumar, Arjun
+             and K{\"o}rfer, Max and Hoo, Shi Bin and Schirrmeister, Robin Tibor and Hutter, Frank},
+  journal = {Nature},
+  volume  = {637},
+  year    = {2025},
+  doi     = {10.1038/s41586-024-08328-6},
+  note    = {RealTabPFN-2.5/v3 weights are gated (non-commercial); excluded under FOSS-only.}
+}
+
+@misc{bregier2025anny,
+  title        = {{Anny}: A parametric body model based on MakeHuman},
+  author       = {Br{\'e}gier, Romain},
+  year         = {2025},
+  publisher    = {NAVER Corp.},
+  note         = {Apache-2.0 code + bundled MPFB2/MakeHuman macro targets; used via SOMA-X
+                  identity backend. Non-commercial SMPL-X conversion data not required.}
+}
+
+@misc{makehuman,
+  title        = {{MakeHuman} / {MPFB2}: Open source tool for making 3D characters},
+  author       = {{The MakeHuman Team}},
+  url          = {http://www.makehumancommunity.org},
+  note         = {Macro phenotype targets (gender/age/muscle/weight/height) bundled with Anny.}
+}

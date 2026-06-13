@@ -1,0 +1,5 @@
+ref,fileName,date,description,status,publicScore,privateScore
+53650546,submission_ensemble.csv,2026-06-13 20:45:56.560000,"FOSS diverse ensemble (TabM+LightGBM+RealMLP+CatBoost), LABEL_MAP",SubmissionStatus.COMPLETE,0.51083,
+53650397,submission_tabm_labelmap.csv,2026-06-13 20:37:59.613000,"TabM (FOSS); correct LABEL_MAP encoding (null=0, +1 shift)",SubmissionStatus.COMPLETE,0.55298,
+53650232,submission_tabm_canon.csv,2026-06-13 20:28:50.203000,TabM (FOSS); canonical WEAR label_dict encoding (null=-1),SubmissionStatus.COMPLETE,0.03974,
+53650189,submission_tabm.csv,2026-06-13 20:25:52.157000,"TabM (FOSS deep MLP, pixi/podman-quadlet); sorted-label encoding; for giggles",SubmissionStatus.COMPLETE,0.03642,
