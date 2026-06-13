@@ -28,3 +28,8 @@ Re-encode/submit via the LABEL_MAP in `../submit_tabm.py` / `../wear_foundation.
   noise σ=0.03g). **Held-out macro-F1 = 0.4927 < 0.51 no-aug baseline → augmentation HURT.**
   TabM is already placement-robust; rotated copies diluted signal. Not submitted (would be < 0.553).
   Conclusion: placement is not the gap; body-size normalization (canonical ANNY) is the better lever.
+
+## 1D-CNN (raw temporal) — NEW BEST
+- `submission_cnn.csv` — torch 1D-CNN on raw 50x3 windows, full data, LABEL_MAP encoding.
+  Held-out (subj 16-19) macro-F1 **0.539** > TabM 0.51; **public LB 0.597** (vs TabM 0.553).
+  Lever = raw-sequence conv (hand-crafted features capped ~0.55). Leaderboard top ~0.79 → headroom remains.

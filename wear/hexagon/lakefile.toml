@@ -1,0 +1,10 @@
+name = "WearHexagon"
+defaultTargets = ["WearHexagon"]
+
+[[require]]
+name = "plausible"
+git = "https://github.com/leanprover-community/plausible"
+rev = "main"
+
+[[lean_lib]]
+name = "WearHexagon"
