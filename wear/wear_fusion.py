@@ -20,7 +20,7 @@ def build(stride=STRIDE):
     for csv in sorted(glob.glob("train/inertial_feat/sbj_*.csv")):
         stem=os.path.basename(csv)[:-4]; vp=f"train/videomae_feat/{stem}.npy"
         if not os.path.exists(vp): continue
-        df=pd.read_csv(csv); sbj=int(df.sbj_id.iloc[0]); lab=df.label.fillna("null").astype(str).values
+        df=pd.read_csv(csv, low_memory=False); sbj=int(df.sbj_id.iloc[0]); lab=df.label.fillna("null").astype(str).values
         vid=np.load(vp,mmap_mode="r"); arrs=[np.nan_to_num(df[c].values.astype(np.float32)) for c in LIMBS]
         for k in range(0,len(df)-50,stride):
             seg=lab[k:k+50]; v,c=np.unique(seg,return_counts=True)

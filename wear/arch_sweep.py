@@ -5,7 +5,7 @@ LIMBS=[["right_arm_acc_x","right_arm_acc_y","right_arm_acc_z"],["right_leg_acc_x
 def windows(stride):
     Xs,ys,gs=[],[],[]
     for csv in sorted(glob.glob("train/inertial_feat/sbj_*.csv")):
-        df=pd.read_csv(csv); sbj=int(df.sbj_id.iloc[0]); lab=df.label.fillna("null").astype(str).values
+        df=pd.read_csv(csv, low_memory=False); sbj=int(df.sbj_id.iloc[0]); lab=df.label.fillna("null").astype(str).values
         for cols in LIMBS:
             a=np.nan_to_num(df[cols].values.astype(np.float32))
             for k in range(0,len(df)-50,stride):

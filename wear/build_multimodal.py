@@ -20,7 +20,7 @@ def main():
         vid_path = f"train/videomae_feat/{stem}.npy"
         if not os.path.exists(vid_path):
             print(f"  skip {stem}: no video"); continue
-        df = pd.read_csv(csv); vid = np.load(vid_path, mmap_mode="r")
+        df = pd.read_csv(csv, low_memory=False); vid = np.load(vid_path, mmap_mode="r")
         sbj = int(df["sbj_id"].iloc[0]); lab = df["label"].fillna("null").astype(str).values
         n = len(df) // WIN
         limb_arrs = {k: df[c].values.astype(np.float32) for k, c in LIMBS.items()}

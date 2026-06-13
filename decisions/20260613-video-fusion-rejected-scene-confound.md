@@ -1,7 +1,7 @@
 ---
 title: VideoMAE multimodal fusion rejected for WEAR — egocentric scene confound
 date: 2026-06-13
-status: accepted
+status: superseded by 20260613-per-subject-video-norm-unlocks-fusion (normalized case)
 tier: proof of concept
 decision-makers: K. S. Ernest (iFire) Lee
 ---
