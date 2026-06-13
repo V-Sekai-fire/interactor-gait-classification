@@ -17,3 +17,5 @@ Style ref: https://v-sekai-multiplayer-fabric.github.io/manuals/decisions.html
 | 2026-06-13 | stretch | proposed | [Sensor-placement augmentation bounds](20260613-sensor-placement-augmentation-bounds.md) |
 | 2026-06-13 | proof of concept | accepted | [1D-CNN raw-temporal is the WEAR lever](20260613-1dcnn-raw-temporal-is-the-wear-lever.md) |
 | 2026-06-13 | stretch | accepted | [WEAR hexagon: Lean4+Plausible core, slangtorch adapter deferred](20260613-wear-hexagon-lean-core-slangtorch-adapter.md) |
+| 2026-06-13 | proof of concept | accepted | [Video fusion rejected (scene confound)](20260613-video-fusion-rejected-scene-confound.md) |
+| 2026-06-13 | stretch | accepted | [Add arXiv/Kaggle/Fetch MCP servers](20260613-add-arxiv-kaggle-fetch-mcps.md) |

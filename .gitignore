@@ -24,3 +24,9 @@ AutogluonModels/
 # secrets
 **/access_token
 **/kaggle.json
+
+# Lean build dir + fetched packages
+**/.lake/
+**/.slangtorch_cache/
+wear/hexagon/lake-manifest.json
+wear/hexagon/_smoke.slang
