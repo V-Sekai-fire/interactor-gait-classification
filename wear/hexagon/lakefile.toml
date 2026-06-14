@@ -8,3 +8,6 @@ rev = "main"
 
 [[lean_lib]]
 name = "WearHexagon"
+
+[[lean_lib]]
+name = "WearLevers"
