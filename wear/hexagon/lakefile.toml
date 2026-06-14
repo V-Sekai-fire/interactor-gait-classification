@@ -11,3 +11,6 @@ name = "WearHexagon"
 
 [[lean_lib]]
 name = "WearLevers"
+
+[[lean_lib]]
+name = "WearMissingF1"
