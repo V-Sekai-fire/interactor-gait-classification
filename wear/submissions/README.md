@@ -33,3 +33,13 @@ Re-encode/submit via the LABEL_MAP in `../submit_tabm.py` / `../wear_foundation.
 - `submission_cnn.csv` — torch 1D-CNN on raw 50x3 windows, full data, LABEL_MAP encoding.
   Held-out (subj 16-19) macro-F1 **0.539** > TabM 0.51; **public LB 0.597** (vs TabM 0.553).
   Lever = raw-sequence conv (hand-crafted features capped ~0.55). Leaderboard top ~0.79 → headroom remains.
+
+## Legit single-limb stack + deep ensemble — NEW BEST (LB 0.639)
+- `submission_legit_stack.csv` — CNN on **10ch gravity-orientation** + **equity 6D-rotation aug**
+  (hard static-pose classes) + **sqrt-balanced loss**. Held-out 0.5554; **public LB 0.634** (+0.037
+  over 1D-CNN 0.597). LOSO→LB transfer ≈ +0.079 (ground-truth-validated in `hexagon/WearSignalTracker.lean`).
+- `submission_ensemble.csv` — prob-avg of CNN+TCN+BiGRU on the same stack. Held-out 0.5705;
+  **public LB 0.639** (+0.005 over solo). NEW BEST.
+- Ceiling note: single-limb test caps inertial ~0.64; full 12-tracker capture = 0.70 but the test gives
+  one limb; frozen VideoMAE doesn't transfer across subjects. Rank-1 (~0.79) needs raw-pixel VideoMAE
+  fine-tune. See `decisions/20260613-whole-body-distillation-*` and `oracle-decomposition-*` MADRs.
