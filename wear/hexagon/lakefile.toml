@@ -14,3 +14,6 @@ name = "WearLevers"
 
 [[lean_lib]]
 name = "WearMissingF1"
+
+[[lean_lib]]
+name = "WearSignalPlaces"
