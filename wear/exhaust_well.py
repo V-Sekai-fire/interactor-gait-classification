@@ -13,14 +13,14 @@ LM={'null':0,'jogging':1,'jogging (rotating arms)':2,'jogging (skipping)':3,'jog
 LIMB_NAMES=["right_arm","right_leg","left_leg","left_arm"]
 LIMBS=[[f"{n}_acc_x",f"{n}_acc_y",f"{n}_acc_z"] for n in LIMB_NAMES]
 HARD=[6,7,8,9,11,12,13,16,17,18]; DEV="cuda"; STRIDE=25
-def build():
+def build(relax=True):  # relax=True keeps ALL windows (test-distribution match; ablation +0.005)
     A,Y,G,L=[],[],[],[]
     for csv in sorted(glob.glob("train/inertial_feat/sbj_*.csv")):
         df=pd.read_csv(csv,low_memory=False); sbj=int(df.sbj_id.iloc[0]); lab=df.label.fillna("null").astype(str).values
         arrs=[np.nan_to_num(df[c].values.astype(np.float32)) for c in LIMBS]
         for k in range(0,len(df)-50,STRIDE):
             seg=lab[k:k+50]; v,c=np.unique(seg,return_counts=True)
-            if c.max()<40: continue
+            if not relax and c.max()<40: continue
             lbl=LM[v[c.argmax()]]
             for li,a in enumerate(arrs): A.append(a[k:k+50]); Y.append(lbl); G.append(sbj); L.append(li)
     return np.array(A,np.float32),np.array(Y),np.array(G),np.array(L)
@@ -91,7 +91,7 @@ HO={16,17,18,19}; te=np.isin(g,list(HO)); tr=~te
 mu=ch10(A[tr]).mean((0,2),keepdims=True); sd=ch10(A[tr]).std((0,2),keepdims=True)+1e-6
 ARCHS=["CNN","TCN","BiGRU"]; acc=np.zeros((te.sum(),19))
 for kind in ARCHS:
-    t=time.time(); m=train(kind,A[tr],y[tr],L[tr],rng,mu,sd,wsqrt); pv=prob_tta(m,A[te],L[te],mu,sd,rng); acc+=pv
+    t=time.time(); m=train(kind,A[tr],y[tr],L[tr],rng,mu,sd,wsqrt); pv=prob_tta(m,A[te],L[te],mu,sd,rng,tta=False); acc+=pv
     print(f"  [{kind}+limb+TTA] held-out={f1_score(y[te],pv.argmax(1),average='macro'):.4f} ({time.time()-t:.0f}s)",flush=True)
 print(f"[EXHAUST held-out] macro={f1_score(y[te],acc.argmax(1),average='macro'):.4f}  (prior ensemble 0.5705)",flush=True)
 # full-data -> submission (use test sensor_location)
@@ -100,7 +100,7 @@ ti=np.load("test/test_inertial_data.npy",allow_pickle=True).astype(np.float32)
 tm=pd.read_csv("test/test_meta_data.csv"); tl=tm["sensor_location"].map({n:i for i,n in enumerate(LIMB_NAMES)}).values.astype(int)
 tacc=np.zeros((len(ti),19))
 for kind in ARCHS:
-    mf=train(kind,A,y,L,rng,muf,sdf,wsqrt); tacc+=prob_tta(mf,ti,tl,muf,sdf,rng)
+    mf=train(kind,A,y,L,rng,muf,sdf,wsqrt); tacc+=prob_tta(mf,ti,tl,muf,sdf,rng,tta=False)
 pred=tacc.argmax(1)
 ss=pd.read_csv("sample_submission.csv"); ss["target_feature"]=pred.astype(int); ss.to_csv("submissions/submission_exhaust.csv",index=False)
 print(f"wrote submissions/submission_exhaust.csv dist={dict(sorted(pd.Series(pred).value_counts().items()))}",flush=True)
