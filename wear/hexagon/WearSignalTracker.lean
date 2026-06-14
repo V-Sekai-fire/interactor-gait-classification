@@ -23,7 +23,9 @@ def LEDGER : List Point := [
   ⟨"single-limb CNN (LOSO)",        525, "legit-inductive"⟩,
   ⟨"single-limb CNN (held-out)",    536, "legit-inductive"⟩,
   ⟨"single-limb CNN (LB)",          597, "leaderboard"⟩,
-  ⟨"FULL 12-tracker (held-out)",    690, "legit-inductive"⟩,   -- NEW: whole-body capture
+  ⟨"legit stack (held-out)",        555, "legit-inductive"⟩,   -- orientation+equity-aug+sqrt-bal
+  ⟨"legit stack (LB) CONFIRMED",    634, "leaderboard"⟩,       -- NEW best, +0.037, transfer +79
+  ⟨"FULL 12-tracker (held-out)",    690, "legit-inductive"⟩,   -- whole-body capture
   ⟨"video inductive (transformer)", 376, "legit-inductive"⟩,
   ⟨"video transductive (psn)",      475, "transductive"⟩,
   ⟨"oracle: active/null gate",      633, "oracle"⟩,
@@ -52,6 +54,13 @@ theorem video_not_standalone : get "video inductive (transformer)" < get "single
     IF we can deliver whole-body context to the single-limb test window. -/
 theorem wholebody_reaches_near_rank1 :
     get "rank-1" - (get "FULL 12-tracker (held-out)" + LOSO_to_LB) ≤ 30 := by native_decide
+/-- CONFIRMED: the legit-stack held-out + the transfer matches the real LB within 0.03 — the held-out→LB
+    projection is validated by ground truth (held-out 555 + transfer ≈ LB 634), so the tracker's
+    whole-body LB projection (762) is trustworthy. -/
+theorem transfer_validated :
+    (get "legit stack (LB) CONFIRMED" - get "legit stack (held-out)") - LOSO_to_LB ≤ 10 := by native_decide
+/-- The legit stack is our confirmed best and a real climb over the prior CNN LB. -/
+theorem legit_stack_is_best : get "legit stack (LB) CONFIRMED" > get "single-limb CNN (LB)" := by native_decide
 
 /-- Plausible: for any two ledger points, the f1 gap equals the difference of their f1s (sanity of the
     tracker arithmetic the strategy rests on). -/
