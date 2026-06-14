@@ -20,3 +20,4 @@ Style ref: https://v-sekai-multiplayer-fabric.github.io/manuals/decisions.html
 | 2026-06-13 | proof of concept | accepted | [Video fusion rejected (scene confound)](20260613-video-fusion-rejected-scene-confound.md) |
 | 2026-06-13 | stretch | accepted | [Add arXiv/Kaggle/Fetch MCP servers](20260613-add-arxiv-kaggle-fetch-mcps.md) |
 | 2026-06-13 | proof of concept | accepted | [Oracle decomposition — rank-1 ≈ null-gate + within-family](20260613-oracle-decomposition-null-gate-within-family.md) |
+| 2026-06-13 | stretch | proposed | [Whole-body distillation — ground video in pose via 12-tracker teacher](20260613-whole-body-distillation-video-grounded-in-pose.md) |
