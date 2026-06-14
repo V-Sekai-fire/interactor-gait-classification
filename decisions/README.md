@@ -19,3 +19,4 @@ Style ref: https://v-sekai-multiplayer-fabric.github.io/manuals/decisions.html
 | 2026-06-13 | stretch | accepted | [WEAR hexagon: Lean4+Plausible core, slangtorch adapter deferred](20260613-wear-hexagon-lean-core-slangtorch-adapter.md) |
 | 2026-06-13 | proof of concept | accepted | [Video fusion rejected (scene confound)](20260613-video-fusion-rejected-scene-confound.md) |
 | 2026-06-13 | stretch | accepted | [Add arXiv/Kaggle/Fetch MCP servers](20260613-add-arxiv-kaggle-fetch-mcps.md) |
+| 2026-06-13 | proof of concept | accepted | [Oracle decomposition — rank-1 ≈ null-gate + within-family](20260613-oracle-decomposition-null-gate-within-family.md) |
