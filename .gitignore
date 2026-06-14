@@ -30,3 +30,4 @@ AutogluonModels/
 **/.slangtorch_cache/
 wear/hexagon/lake-manifest.json
 wear/hexagon/_smoke.slang
+wear/raw_video/

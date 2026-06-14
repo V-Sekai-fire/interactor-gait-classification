@@ -50,4 +50,14 @@ the honest frontier of this data without raw pixels.
 
 ## Outcome
 
-(to fill once `exhaust_well.py` held-out + LB land — vs ensemble held-out 0.5705 / LB 0.639)
+Ablation (`ablate_levers.py`, CNN-only held-out, base 0.5539): **+limb 0.5591, relaxed-window 0.5590,
+TTA(jitter) 0.4040**. TTA corrupts the gravity-orientation channel (recomputing ch10 on jittered input)
+→ **dropped**. Limb + relaxed each help solos ~+0.005.
+
+Final exhaust (ensemble CNN+TCN+BiGRU, limb + relaxed, no TTA): **held-out 0.5705 — identical to the
+prior plain ensemble.** The solo gains wash out under 3-arch averaging (the ensemble already captured
+that signal). `submission_exhaust.csv` written but **not submitted** (no expected gain over the 0.639
+ensemble; would waste a daily slot). **The single-limb inertial well is exhausted at LB 0.639.**
+
+The only remaining legitimate lever is the train-raw-video flow-supervision (separate MADR if pursued);
+expected value low given egocentric video + frozen-feature deployment wall.
