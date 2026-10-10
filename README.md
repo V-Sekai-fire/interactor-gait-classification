@@ -14,4 +14,4 @@ Each stage is a Python script run in that environment, which expects the ANNY ch
 
 ## Licence
 
-The repository states no licence. `citation.bib` cites the gait dataset.
+MIT. See [LICENSE](LICENSE).
